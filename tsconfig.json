@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "ngx-portals": [
-        "dist/ngx-portals"
+      "ngx-portal": [
+        "dist/ngx-portal"
       ],
-      "ngx-portals/*": [
-        "dist/ngx-portals/*"
+      "ngx-portal/*": [
+        "dist/ngx-portal/*"
       ]
     }
   },

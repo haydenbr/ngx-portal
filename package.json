@@ -1,15 +1,44 @@
 {
-  "name": "ngx-portals",
-  "version": "0.0.0",
+  "name": "@nooice/ngx-portal",
+  "version": "0.0.1",
+  "keywords": [
+    "angular",
+    "ngx",
+    "ng",
+    "portal",
+    "portals",
+    "dynamic",
+    "template",
+    "noice",
+    "nooice"
+  ],
+  "homepage": "https://github.com/haydenbr/ngx-portal",
+  "author": {
+    "name": "Hayden Braxton",
+    "url": "https://twitter.com/hayden_dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/haydenbr/ngx-portal.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ngx-portal",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "package": "yarn build && yarn copy-files && npm pack-lib",
+    "copy-files": "cp README.md dist/ngx-portal && cp LICENSE dist/ngx-portal",
+    "publish-lib": "npm publish dist/ngx-portal/nooice-portal-*.tgz",
+    "pack-lib": "cd dist/ngx-portal && yarn pack",
+    "release": "yarn package && yarn publish-lib",
+    "major": "yarn version --major",
+    "minor": "yarn version --minor",
+    "patch": "yarn version --patch"
   },
-  "private": true,
+  "license": "MIT",
+  "private": false,
   "dependencies": {
     "@angular/animations": "~8.2.3",
     "@angular/common": "~8.2.3",

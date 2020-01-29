@@ -3,33 +3,33 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-portals": {
+    "ngx-portal": {
       "projectType": "library",
-      "root": "projects/ngx-portals",
-      "sourceRoot": "projects/ngx-portals/src",
+      "root": "projects/ngx-portal",
+      "sourceRoot": "projects/ngx-portal/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-portals/tsconfig.lib.json",
-            "project": "projects/ngx-portals/ng-package.json"
+            "tsConfig": "projects/ngx-portal/tsconfig.lib.json",
+            "project": "projects/ngx-portal/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-portals/src/test.ts",
-            "tsConfig": "projects/ngx-portals/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-portals/karma.conf.js"
+            "main": "projects/ngx-portal/src/test.ts",
+            "tsConfig": "projects/ngx-portal/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-portal/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-portals/tsconfig.lib.json",
-              "projects/ngx-portals/tsconfig.spec.json"
+              "projects/ngx-portal/tsconfig.lib.json",
+              "projects/ngx-portal/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -38,5 +38,5 @@
         }
       }
     }},
-  "defaultProject": "ngx-portals"
+  "defaultProject": "ngx-portal"
 }
