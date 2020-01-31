@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common'
 
 import { NgxPortalRouterService } from './ngx-portal-router.service'
@@ -14,7 +14,13 @@ import { NgxPortalOutputComponent } from './ngx-portal-output.component'
 	declarations: [
 		NgxPortalInputComponent,
 		NgxPortalOutputComponent
-	],
-	providers: [NgxPortalRouterService],
+	]
 })
-export class NgxPortalModule { }
+export class NgxPortalModule {
+	static forRoot(): ModuleWithProviders<NgxPortalModule> {
+		return {
+			ngModule: NgxPortalModule,
+			providers: [NgxPortalRouterService]
+		}
+	}
+}
