@@ -33,9 +33,9 @@
     "publish-lib": "npm publish dist/ngx-portal/nooice-ngx-portal-*.tgz --access public",
     "pack-lib": "cd dist/ngx-portal && npm pack",
     "release": "npm run package && npm run publish-lib",
-    "major": "npm version major",
-    "minor": "npm version minor",
-    "patch": "npm version patch"
+    "major": "cd projects/ngx-portal && npm version major",
+    "minor": "cd projects/ngx-portal && npm version minor",
+    "patch": "cd projects/ngx-portal && npm version patch"
   },
   "license": "MIT",
   "private": false,
