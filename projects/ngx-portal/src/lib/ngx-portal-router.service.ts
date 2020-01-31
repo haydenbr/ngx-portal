@@ -23,7 +23,6 @@ export class NgxPortalRouterService {
     let portal$ = this.portals[portalKey];
 
     if (!portal$) {
-      
       portal$ = new BehaviorSubject<TemplateRef<any>>(undefined);
       this.portals[portalKey] = portal$;
     }

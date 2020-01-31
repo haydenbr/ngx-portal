@@ -1,5 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, Input, AfterViewInit } from '@angular/core';
-import { Subject } from 'rxjs'
+import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, Input, AfterViewInit, OnDestroy } from '@angular/core';
 
 import { NgxPortalRouterService } from './ngx-portal-router.service'
 
@@ -12,7 +11,7 @@ import { NgxPortalRouterService } from './ngx-portal-router.service'
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NgxPortalInputComponent implements AfterViewInit {
+export class NgxPortalInputComponent implements AfterViewInit, OnDestroy {
   @Input() portalKey: string;
   @ViewChild('inputTemplate', { static: false })
   inputTemplate: TemplateRef<any>
@@ -24,5 +23,9 @@ export class NgxPortalInputComponent implements AfterViewInit {
       this.portalKey,
       this.inputTemplate
     )
+  }
+
+  ngOnDestroy() {
+    this.portals.clearPortal(this.portalKey)
   }
 }

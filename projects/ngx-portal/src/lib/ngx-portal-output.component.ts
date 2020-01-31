@@ -1,6 +1,5 @@
-import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef, Input, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { Component, ChangeDetectionStrategy, TemplateRef, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs'
 
 import { NgxPortalRouterService } from './ngx-portal-router.service'
 
@@ -22,7 +21,6 @@ export class NgxPortalOutputComponent implements OnInit {
   constructor(private portals: NgxPortalRouterService) {}
 
   ngOnInit() {
-    this.portalContents$ = this.portals
-      .getPortal(this.portalKey)
+    this.portalContents$ = this.portals.getPortal(this.portalKey)
   }
 }
