@@ -1,7 +1,7 @@
 import { Injectable, TemplateRef } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class NgxPortalRouterService {
   private portals: {
     [portalKey: string]: BehaviorSubject<TemplateRef<any>>
