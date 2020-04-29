@@ -6,21 +6,15 @@ import { NgxPortalRouterService } from './ngx-portal-router.service'
 @Component({
   selector: 'ngx-portal-output',
   template: `
-    <ng-container *ngIf="portalContents$">
-      <ng-container
-        *ngTemplateOutlet="portalContents$ | async"
-      ></ng-container>
-    </ng-container>
+    <ng-container
+      *ngTemplateOutlet="portalContents$ | async"
+    ></ng-container>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NgxPortalOutputComponent implements OnInit {
+export class NgxPortalOutputComponent {
   @Input() portalKey: string;
-  portalContents$: Observable<TemplateRef<any>>
+  portalContents$ = this.portals.getPortal(this.portalKey)
 
   constructor(private portals: NgxPortalRouterService) {}
-
-  ngOnInit() {
-    this.portalContents$ = this.portals.getPortal(this.portalKey)
-  }
 }
