@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy, TemplateRef, Input, OnInit, NgZone } from '@angular/core';
+import { Component, ChangeDetectionStrategy, TemplateRef, Input, OnInit } from '@angular/core';
 import { Observable, pipe } from 'rxjs'
-import { delay, map, tap } from 'rxjs/operators'
+import { delay, map } from 'rxjs/operators'
 
 import { NgxPortalRouterService } from './ngx-portal-router.service'
 
@@ -17,7 +17,6 @@ import { NgxPortalRouterService } from './ngx-portal-router.service'
 })
 export class NgxPortalOutputComponent implements OnInit {
   @Input() portalKey: string;
-  @Input() preventChangeAfterCheck = false
   portalContents$: Observable<TemplateRef<any>>
 
   constructor(
@@ -28,10 +27,8 @@ export class NgxPortalOutputComponent implements OnInit {
     this.portalContents$ = this.portals
       .getPortal(this.portalKey)
       .pipe(
-        this.delayOperator(),
+        pipe(delay(0)), // prevents change after checked error
         map(x => x as TemplateRef<any>)
       )
   }
-
-  private delayOperator = () => this.preventChangeAfterCheck ? pipe(delay(0)) : pipe(tap())
 }
